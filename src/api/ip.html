@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/png"
+      href=""
+    />
+    <title>ip</title>
+  </head>
+  <body style="background-color: rgb(24, 24, 24); color: white">
+    <pre>
+{
+  "ip": "<span id="ip"></span>",
+  "host": "<span id="host"></span>",
+  "method": "GET",
+  "path": "<span id="path"></span>",
+  "userAgent": "<span id="userAgent"></span>
+}
+  </pre>
+  </body>
+  <script type="module">
+    import { main } from "../main.mjs";
+    main();
+    const ip = document.getElementById("ip");
+    const ipApi = await fetch("https://api.ipify.org/?format=json")
+      .then((res) => res.json())
+      .then((res) => res.ip);
+    ip.innerHTML = ipApi;
+    const host = document.getElementById("host");
+    host.innerHTML = window.location.host;
+    const path = document.getElementById("path");
+    path.innerHTML = window.location.pathname;
+    const userAgent = document.getElementById("userAgent");
+    userAgent.innerHTML = navigator.userAgent;
+  </script>
+</html>

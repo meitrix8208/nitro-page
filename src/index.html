@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="preconnect"
+      href="https://rsms.me/"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rsms.me/inter/inter.css"
+    />
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/png"
+      href=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind-compat.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js"></script>
+
+    <title>Nitro Test Deployment</title>
+  </head>
+
+  <body
+    un-cloak
+    class="bg-black"
+  >
+    <div class="flex justify-center items-center h-screen">
+      <div
+        class="bg-yellow-500 text-black p-4 rounded-lg max-w-lg border border-white border-2xl border-4 outline outline-offset-0 outline-red-500"
+      >
+        <img
+          id="logo"
+          src=""
+          class="w-5 h-5 inline-block translate-y--0.6 mr-2"
+        />
+        <a href="/">
+          <span class="font-bold"> Nitro Test Deployment </span>
+        </a>
+        <div class="mt-3 pt-3 border-t-2">
+          <table
+            class="table-auto"
+            id="perf"
+          ></table>
+          <div class="mb-3">
+            Routes: (current route: /)
+            <ul>
+              <li>
+                <a
+                  href="/api/env"
+                  class="underline"
+                  >/api/env</a
+                >
+                <br />
+                <a
+                  href="/api/stream"
+                  class="underline"
+                  >/api/stream</a
+                >
+                <br />
+                <a
+                  href="/api/ip"
+                  class="underline"
+                  >/api/ip</a
+                >
+                <br />
+                <a
+                  href="/api/hello"
+                  class="underline"
+                  >/api/hello</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="mt-3 pt-3 border-t-2">
+            Generated at <span id="Date">00/00/0000, 00:00:00</span> with
+            <br />
+            <div class="flex justify-center items-center">
+              <a
+                href="https://nitro.unjs.io/"
+                class="underline font-bold items-center flex"
+                target="_blank"
+              >
+                Nitro</a
+              ><span class="underline text-gray-200"
+                >@<span id="Version">0.0.0</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    import { main } from "./main.mjs";
+    const { favicon } = main();
+    const version = document.getElementById("Version");
+    const logo = document.getElementById("logo");
+    const executionDate = new Date().toLocaleString();
+    const date = document.getElementById("Date");
+    const nitroVersion = await fetch(
+      "https://raw.githubusercontent.com/unjs/nitro/main/package.json"
+    )
+      .then((res) => res.json())
+      .then((res) => res.version);
+    logo.src = favicon.href;
+    date.innerHTML = executionDate;
+    version.innerHTML = nitroVersion;
+  </script>
+  <style>
+    [un-cloak] {
+      display: none;
+    }
+    :root {
+      font-family: Inter, sans-serif;
+      font-feature-settings: "liga" 1, "calt" 1, "tnum" 1;
+    }
+
+    @supports (font-variation-settings: normal) {
+      :root {
+        font-family: InterVariable, sans-serif;
+      }
+    }
+  </style>
+</html>

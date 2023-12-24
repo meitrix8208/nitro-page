@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/png"
+      href=""
+    />
+    <title>hello</title>
+  </head>
+  <body style="background-color: rgb(24, 24, 24); color: white">
+    <pre id="response">
+{
+  "nitro": "Is Awesome!",
+  "isReal": true
+}
+    </pre>
+  </body>
+  <script type="module">
+    import { main } from "../main.mjs";
+    main();
+    const query = new URLSearchParams(window.location.search);
+    const response = document.getElementById("response");
+    query.get("bye");
+    if (query.get("bye") !== "true") {
+      response.innerHTML = JSON.stringify(
+        {
+          nitro: "Is Awesome!",
+          isReal: true,
+        },
+        null,
+        2
+      );
+    } else {
+      response.innerHTML = JSON.stringify(
+        {
+          GoodBye: "have a nice day!",
+          nitro: "Is Awesome!",
+        },
+        null,
+        2
+      );
+    }
+  </script>
+</html>
