@@ -76,9 +76,13 @@
               </li>
             </ul>
           </div>
-          <div class="mt-3 pt-3 border-t-2">
-            Generated at <span id="Date">00/00/0000, 00:00:00</span> with
-            <br />
+          <div class="mt-3 pt-3 border-t-2 text-[14px] font-475">
+            <div class="font-italic">
+              Generated at
+              <span id="Date">00/00/0000, 00:00:00</span>
+              with
+              <br />
+            </div>
             <div class="flex justify-center items-center">
               <a
                 href="https://nitro.unjs.io/"
@@ -119,7 +123,9 @@
       font-family: Inter, sans-serif;
       font-feature-settings: "liga" 1, "calt" 1, "tnum" 1;
     }
-
+    strong {
+      @apply text-green;
+    }
     @supports (font-variation-settings: normal) {
       :root {
         font-family: InterVariable, sans-serif;
