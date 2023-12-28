@@ -17,9 +17,25 @@
       type="image/png"
       href=""
     />
+    <link
+      rel="preconnect"
+      href="https://rsms.me/"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rsms.me/inter/inter.css"
+    />
     <style>
+      :root {
+        font-family: Inter, sans-serif;
+        font-feature-settings: "liga" 1, "calt" 1, "tnum" 1;
+      }
+      @supports (font-variation-settings: normal) {
+        :root {
+          font-family: InterVariable, sans-serif;
+        }
+      }
       body {
-        font-family: monospace;
         color: #fff;
         background: #333;
         font-size: 1.5em;
@@ -27,8 +43,8 @@
         display: flex;
         flex-direction: column;
         align-items: center; /* Centrar en el eje horizontal */
-        text-align: left; /* Centrar el texto */
         margin: 0; /* Eliminar el margen predeterminado del cuerpo */
+        text-align: center; /* Centrar el texto */
       }
       a {
         color: #fff;
@@ -38,13 +54,16 @@
         margin: 0.5em 0;
       }
       p {
-        max-width: 1300px; /* Ajustar el ancho máximo del texto para evitar líneas extremadamente largas */
+        max-width: 1200px; /* Ajustar el ancho máximo del texto para evitar líneas extremadamente largas */
         margin: 0 auto; /* Centrar el párrafo horizontalmente */
+        text-align: justify; /* Centrar el texto */
+        text-justify: inter-word; /* Justificar el texto */
       }
 
-      @media only screen and (max-width: 721px) {
+      @media only screen and (max-width: 860px) {
         body {
           font-size: 1.2em; /* Reducir el tamaño del texto para dispositivos más pequeños */
+          padding: 1em;
         }
         h1 {
           font-size: 1.7em;
