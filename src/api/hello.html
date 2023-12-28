@@ -14,7 +14,9 @@
     />
     <title>hello</title>
   </head>
-  <body style="background-color: rgb(24, 24, 24); color: white">
+  <body
+    style="height: 100dvh; margin: 0; background-color: #282c34; color: white"
+  >
     <pre id="response">
 {
   "nitro": "Is Awesome!",
@@ -23,28 +25,40 @@
     </pre>
   </body>
   <script type="module">
+    import { codeToHtml } from "https://esm.sh/shikiji@0.9.12/bundle/web";
     import { main } from "../main.mjs";
     main();
     const query = new URLSearchParams(window.location.search);
     const response = document.getElementById("response");
-    query.get("bye");
     if (query.get("bye") !== "true") {
-      response.innerHTML = JSON.stringify(
+      response.innerHTML = await codeToHtml(
+        JSON.stringify(
+          {
+            nitro: "Is Awesome!",
+            isReal: true,
+          },
+          null,
+          2
+        ),
         {
-          nitro: "Is Awesome!",
-          isReal: true,
-        },
-        null,
-        2
+          lang: "json",
+          theme: "one-dark-pro",
+        }
       );
     } else {
-      response.innerHTML = JSON.stringify(
+      response.innerHTML = await codeToHtml(
+        JSON.stringify(
+          {
+            GoodBye: "have a nice day!",
+            nitro: "Is Awesome!",
+          },
+          null,
+          2
+        ),
         {
-          GoodBye: "have a nice day!",
-          nitro: "Is Awesome!",
-        },
-        null,
-        2
+          lang: "json",
+          theme: "one-dark-pro",
+        }
       );
     }
   </script>

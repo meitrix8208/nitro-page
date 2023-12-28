@@ -5,7 +5,7 @@
     <title>Nitro Streaming Demo</title>
     <meta
       name="viewport"
-      content="width=device-width"
+      content="width=device-width, initial-scale=1.0"
     />
     <meta
       name="description"
@@ -23,12 +23,32 @@
         color: #fff;
         background: #333;
         font-size: 1.5em;
-        padding: 5em;
-        justify-content: center;
+        padding: 2em; /* Reducir el relleno para dispositivos más pequeños */
+        display: flex;
         flex-direction: column;
+        align-items: center; /* Centrar en el eje horizontal */
+        text-align: left; /* Centrar el texto */
+        margin: 0; /* Eliminar el margen predeterminado del cuerpo */
       }
       a {
         color: #fff;
+      }
+      h1 {
+        font-size: 3em;
+        margin: 0.5em 0;
+      }
+      p {
+        max-width: 1300px; /* Ajustar el ancho máximo del texto para evitar líneas extremadamente largas */
+        margin: 0 auto; /* Centrar el párrafo horizontalmente */
+      }
+
+      @media only screen and (max-width: 721px) {
+        body {
+          font-size: 1.2em; /* Reducir el tamaño del texto para dispositivos más pequeños */
+        }
+        h1 {
+          font-size: 1.7em;
+        }
       }
     </style>
   </head>
