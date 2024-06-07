@@ -1,4 +1,4 @@
-# mock of future page made with Nitropack
+# Mockin html of page made with Nitropack
 
 ## Site
 
